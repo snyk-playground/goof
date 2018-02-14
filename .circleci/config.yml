@@ -30,7 +30,7 @@ jobs:
             ls
 
       - store_artifacts:
-          path: goof/snyk-output.txt
+          path: snyk-output.txt
 
       # Snyk Monitor if snyk test passes (snyk test by default fails if any vulnerabilities are detected)
       - run:
