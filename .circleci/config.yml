@@ -26,12 +26,11 @@ jobs:
       - run:
           name: "Snyk Test"
           command:
-            mkdir /tmp/results |
-            snyk test --org=snyk-playground > /tmp/results/snyk-output.txt || true |
+            snyk test --org=snyk-playground > snyk-output.txt || true |
             ls
 
       - store_artifacts:
-          path: /tmp/results
+          path: snyk-output.txt
 
       # Snyk Monitor if snyk test passes (snyk test by default fails if any vulnerabilities are detected)
       - run:
