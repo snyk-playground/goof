@@ -25,10 +25,9 @@ jobs:
 
       # Snyk Test
       - run:
-          name: "Snyk Test"
+          name: "Snyk Test breaking on high sev"
           command:
             snyk test --json | jq -e '[(.vulnerabilities[].severity == "high")]' | jq 'if(any) then error("high severity vuln(s) found !") else empty end'
-
 
       # Snyk Monitor if snyk test passes (snyk test by default fails if any vulnerabilities are detected)
       - run:
