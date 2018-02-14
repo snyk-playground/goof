@@ -29,7 +29,7 @@ jobs:
             snyk test --org=snyk-playground || true > snyk-output.txt
 
       - store_artifacts:
-          path: snyk-output.txt
+          path: goof/snyk-output.txt
 
       # Snyk Monitor if snyk test passes (snyk test by default fails if any vulnerabilities are detected)
       - run:
