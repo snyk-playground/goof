@@ -16,6 +16,10 @@ jobs:
       #     name: update-snyk
       #     command: 'sudo npm install -g snyk'
 
+      - run:
+          name: install-jq
+          command: 'sudo apt-get install jq'
+
       - checkout
 
       # Install goof dependencies
