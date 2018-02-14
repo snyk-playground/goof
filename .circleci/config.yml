@@ -27,11 +27,8 @@ jobs:
       - run:
           name: "Snyk Test"
           command:
-            snyk test --org=snyk-playground > snyk-output.txt || true |
-            ls
+            snyk test --json | jq -e '[(.vulnerabilities[].severity == "high")]' | jq 'if(any) then error("high severity vuln(s) found !") else empty end'
 
-      - store_artifacts:
-          path: snyk-output.txt
 
       # Snyk Monitor if snyk test passes (snyk test by default fails if any vulnerabilities are detected)
       - run:
