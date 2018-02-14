@@ -27,7 +27,9 @@ jobs:
           name: "Snyk Test"
           command:
             snyk test --org=snyk-playground || true
-          path: test-results
+
+      - store_test_results:
+          path: goof
 
       # Snyk Monitor if snyk test passes (snyk test by default fails if any vulnerabilities are detected)
       - run:
