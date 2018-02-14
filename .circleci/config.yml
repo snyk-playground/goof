@@ -26,7 +26,8 @@ jobs:
       - run:
           name: "Snyk Test"
           command:
-            snyk test --org=snyk-playground || true > snyk-output.txt
+            snyk test --org=snyk-playground || true > snyk-output.txt |
+            ls
 
       - store_artifacts:
           path: goof/snyk-output.txt
