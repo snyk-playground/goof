@@ -26,10 +26,10 @@ jobs:
       - run:
           name: "Snyk Test"
           command:
-            snyk test --org=snyk-playground || true
+            snyk test --org=snyk-playground || true > snyk-output.txt
 
-      - store_test_results:
-          path: goof
+    - store_artifacts:
+          path: /goof/snyk-output.txt
 
       # Snyk Monitor if snyk test passes (snyk test by default fails if any vulnerabilities are detected)
       - run:
