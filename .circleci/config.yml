@@ -12,9 +12,9 @@ jobs:
 
     steps:
       # Install snyk CLI
-      - run:
-          name: update-snyk
-          command: 'sudo npm install -g snyk'
+      # - run:
+      #     name: update-snyk
+      #     command: 'sudo npm install -g snyk'
 
       - checkout
 
